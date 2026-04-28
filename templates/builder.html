@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% if lang == "ru" %}Заполнение резюме{% else %}Резюме толтыру{% endif %}
+    </title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+
+<body>
+
+<div class="form-container">
+
+    <div class="form-top">
+        <a href="/" class="back-link">
+            {% if lang == "ru" %}← На главную{% else %}← Басты бетке{% endif %}
+        </a>
+
+        <div class="lang-switch-form">
+            <a href="/builder?lang=ru">RU</a>
+            <a href="/builder?lang=kz">KZ</a>
+        </div>
+    </div>
+
+    <h1>
+        {% if lang == "ru" %}Заполнение резюме{% else %}Резюме толтыру{% endif %}
+    </h1>
+
+    <p>
+        {% if lang == "ru" %}
+            Заполните поля, и сайт создаст готовое резюме
+        {% else %}
+            Өрістерді толтырыңыз, сайт дайын резюме жасайды
+        {% endif %}
+    </p>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <label>{% if lang == "ru" %}Фото{% else %}Фото{% endif %}</label>
+        <div class="file-upload">
+    <label for="photo" class="file-label">
+        {% if lang == "ru" %}
+            Загрузить фото
+        {% else %}
+            Фото жүктеу
+        {% endif %}
+    </label>
+
+    <span id="file-name">
+        {% if lang == "ru" %}
+            Файл не выбран
+        {% else %}
+            Файл таңдалмады
+        {% endif %}
+    </span>
+
+    <input type="file" id="photo" name="photo" accept="image/*">
+</div>
+
+<script>
+    const photoInput = document.getElementById("photo");
+    const fileName = document.getElementById("file-name");
+
+    photoInput.addEventListener("change", function () {
+        if (photoInput.files.length > 0) {
+            fileName.textContent = photoInput.files[0].name;
+        }
+    });
+</script>
+
+        <label>{% if lang == "ru" %}ФИО{% else %}Аты-жөні{% endif %}</label>
+        <input type="text" name="name"
+               placeholder="{% if lang == 'ru' %}Например: Иванов Иван Иванович{% else %}Мысалы: Ахметова Айдана Ерланқызы{% endif %}"
+               required>
+
+        <label>{% if lang == "ru" %}Телефон{% else %}Телефон{% endif %}</label>
+        <input type="text" name="phone" placeholder="+7 777 777 77 77" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="example@gmail.com" required>
+
+        <label>{% if lang == "ru" %}Город{% else %}Қала{% endif %}</label>
+        <input type="text" name="city"
+               placeholder="{% if lang == 'ru' %}Астана{% else %}Астана{% endif %}">
+
+        <label>{% if lang == "ru" %}О себе{% else %}Өзі туралы{% endif %}</label>
+        <textarea name="about"
+                  placeholder="{% if lang == 'ru' %}Кратко расскажите о себе{% else %}Өзіңіз туралы қысқаша жазыңыз{% endif %}"></textarea>
+
+        <label>{% if lang == "ru" %}Образование{% else %}Білімі{% endif %}</label>
+        <textarea name="education"
+                  placeholder="{% if lang == 'ru' %}Университет, специальность, год обучения{% else %}Университет, мамандық, оқу жылы{% endif %}"></textarea>
+
+        <label>{% if lang == "ru" %}Опыт / практика{% else %}Тәжірибе / практика{% endif %}</label>
+        <textarea name="experience"
+                  placeholder="{% if lang == 'ru' %}Практика, стажировка, проекты{% else %}Практика, тағылымдама, жобалар{% endif %}"></textarea>
+
+        <label>{% if lang == "ru" %}Навыки{% else %}Дағдылар{% endif %}</label>
+        <textarea name="skills"
+                  placeholder="{% if lang == 'ru' %}HTML, CSS, Python, Excel...{% else %}HTML, CSS, Python, Excel...{% endif %}"></textarea>
+
+        <label>{% if lang == "ru" %}Спортивные достижения{% else %}Спорттық жетістіктер{% endif %}</label>
+    <textarea name="sport_achievements"
+                  placeholder="{% if lang == 'ru' %}Медали, соревнования, достижения{% else %}Медальдар, жарыстар, жетістіктер{% endif %}"></textarea>
+
+
+        <button type="submit">
+            {% if lang == "ru" %}Создать резюме{% else %}Резюме жасау{% endif %}
+        </button>
+    </form>
+</div>
+
+
+<footer class="footer">
+
+    <p>© Центр развития и карьеры</p>
+
+    <div class="socials">
+        <a href="https://t.me/+7eEoJ5ww0YViNGQ6" target="_blank">
+            <i class="fab fa-telegram-plane"></i>
+        </a>
+
+        <a href="https://www.instagram.com/knuscareercenter?igsh=MXZsdWp2aGk3MHgzcA==" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+</footer>
+
+</body>
+</html>
