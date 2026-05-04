@@ -44,52 +44,80 @@
 
     <div class="right">
 
+    {% set section_titles = {
+        "about": "О себе" if lang == "ru" else "Өзі туралы",
+        "education": "Образование" if lang == "ru" else "Білімі",
+        "experience": "Опыт работы" if lang == "ru" else "Жұмыс тәжірибесі",
+        "sport_achievements": "Спортивные достижения" if lang == "ru" else "Спорттық жетістіктер"
+    } %}
+
+    {% set order = data.section_order.split(",") if data.section_order else ["about", "education", "experience", "sport_achievements"] %}
+
+    {% for section in order %}
         <div class="section">
-            <h3>
-                {% if lang == "ru" %}
-                    О себе
-                {% else %}
-                    Өзі туралы
-                {% endif %}
-            </h3>
-            <p>{{ data.about }}</p>
+            <h3>{{ section_titles[section] }}</h3>
+            <p>{{ data[section] }}</p>
+        </div>
+    {% endfor %}
+
+</div>
+
+</div>
+
+<div class="resume-analysis">
+    <h2>
+        {% if lang == "ru" %}
+            Анализ резюме
+        {% else %}
+            Резюме талдауы
+        {% endif %}
+    </h2>
+
+    <div class="analysis-score">
+        <div class="score-circle">
+            {{ analysis.score }}%
         </div>
 
-        <div class="section">
-            <h3>
+        <div>
+            <p>
                 {% if lang == "ru" %}
-                    Образование
+                    Заполненность резюме
                 {% else %}
-                    Білімі
+                    Резюменің толтырылуы
                 {% endif %}
-            </h3>
-            <p>{{ data.education }}</p>
-        </div>
+            </p>
 
-        <div class="section">
-            <h3>
-                {% if lang == "ru" %}
-                    Опыт работы
-                {% else %}
-                    Жұмыс тәжірибесі
-                {% endif %}
-            </h3>
-            <p>{{ data.experience }}</p>
+            <h3>{{ analysis.level }}</h3>
         </div>
-
-        <div class="section">
-            <h3>
-                {% if lang == "ru" %}
-                    Спортивные достижения
-                {% else %}
-                    Спорттық жетістіктер
-                {% endif %}
-            </h3>
-            <p>{{ data.sport_achievements }}</p>
-        </div>
-
     </div>
 
+    {% if analysis.recommendations %}
+        <div class="recommendation-box">
+            <h3>
+                {% if lang == "ru" %}
+                    Рекомендации:
+                {% else %}
+                    Ұсыныстар:
+                {% endif %}
+            </h3>
+
+            <ul>
+                {% for rec in analysis.recommendations %}
+                    <li>{{ rec }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <div class="recommendation-box good">
+            <p>
+                {% if lang == "ru" %}
+                    Резюме заполнено хорошо. Можно использовать для отправки работодателю.
+                {% else %}
+                    Резюме жақсы толтырылған. Жұмыс берушіге жіберуге болады.
+                {% endif %}
+            </p>
+        </div>
+    {% endif %}
 </div>
 
 <div class="buttons">
@@ -97,9 +125,17 @@
         {% if lang == "ru" %}Скачать PDF{% else %}PDF жүктеу{% endif %}
     </button>
 
-    <a href="/builder" class="edit">
+    <a href="/builder?lang={{ lang }}" class="edit">
         {% if lang == "ru" %}Заполнить заново{% else %}Қайта толтыру{% endif %}
     </a>
+
+    <a href="/download_word" class="download">
+    {% if lang == "ru" %}
+        Скачать Word
+    {% else %}
+        Word жүктеу
+    {% endif %}
+</a>
 </div>
 
 <footer class="footer">

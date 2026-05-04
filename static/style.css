@@ -465,3 +465,156 @@ button:hover {
 .pdf-guide-btn:hover {
     background: #d8e4f2;
 }
+
+
+.resume-analysis {
+    width: 850px;
+    margin: 25px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.resume-analysis h2 {
+    margin-top: 0;
+    color: #1f4e79;
+}
+
+.analysis-score {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.score-circle {
+    width: 95px;
+    height: 95px;
+    background: #1f4e79;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.analysis-score p {
+    margin: 0;
+    color: #666;
+    font-size: 16px;
+}
+
+.analysis-score h3 {
+    margin: 7px 0 0;
+    color: #1f4e79;
+    font-size: 24px;
+}
+
+.recommendation-box {
+    margin-top: 20px;
+    background: #f3f6fa;
+    padding: 20px;
+    border-radius: 14px;
+    border-left: 5px solid #1f4e79;
+}
+
+.recommendation-box h3 {
+    margin-top: 0;
+    color: #1f4e79;
+}
+
+.recommendation-box ul {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.recommendation-box li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.recommendation-box.good {
+    background: #eef8f0;
+    border-left: 5px solid #2e8b57;
+}
+
+@media print {
+    .resume-analysis {
+        display: none;
+    }
+}
+
+.drag-help {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+.section-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px;
+}
+
+.section-list li {
+    background: #f3f6fa;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #d7d7d7;
+    cursor: grab;
+    font-weight: bold;
+    color: #1f4e79;
+}
+
+.section-list li:active {
+    cursor: grabbing;
+}
+
+.section-list li.dragging {
+    opacity: 0.5;
+    background: #d8e4f2;
+}
+
+.section-list li {
+    cursor: grab;
+}
+
+.section-list li.dragging {
+    opacity: 0.5;
+}
+
+.section-item {
+    background: #f3f6fa;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border: 1px solid #d7d7d7;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-weight: bold;
+    color: #1f4e79;
+}
+
+.move-btn {
+    width: 40px;
+    margin-left: 5px;
+    padding: 6px 0;
+    background: #1f4e79;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.move-btn:hover {
+    background: #163b5c;
+}

@@ -107,6 +107,94 @@
                   placeholder="{% if lang == 'ru' %}Медали, соревнования, достижения{% else %}Медальдар, жарыстар, жетістіктер{% endif %}"></textarea>
 
 
+        <label>
+    {% if lang == "ru" %}
+        Порядок разделов в резюме
+    {% else %}
+        Резюмедегі бөлімдердің реті
+    {% endif %}
+</label>
+
+<p class="drag-help">
+    {% if lang == "ru" %}
+        Перетащите разделы, чтобы изменить их порядок
+    {% else %}
+        Бөлімдердің ретін өзгерту үшін сүйреңіз
+    {% endif %}
+</p>
+<div id="section-list" class="section-list">
+
+    <div class="section-item" data-section="about">
+        <span>О себе</span>
+        <div>
+            <button type="button" class="move-btn" onclick="moveUp(this)">↑</button>
+            <button type="button" class="move-btn" onclick="moveDown(this)">↓</button>
+        </div>
+    </div>
+
+    <div class="section-item" data-section="education">
+        <span>Образование</span>
+        <div>
+            <button type="button" class="move-btn" onclick="moveUp(this)">↑</button>
+            <button type="button" class="move-btn" onclick="moveDown(this)">↓</button>
+        </div>
+    </div>
+
+    <div class="section-item" data-section="experience">
+        <span>Опыт работы</span>
+        <div>
+            <button type="button" class="move-btn" onclick="moveUp(this)">↑</button>
+            <button type="button" class="move-btn" onclick="moveDown(this)">↓</button>
+        </div>
+    </div>
+
+    <div class="section-item" data-section="sport_achievements">
+        <span>Спортивные достижения</span>
+        <div>
+            <button type="button" class="move-btn" onclick="moveUp(this)">↑</button>
+            <button type="button" class="move-btn" onclick="moveDown(this)">↓</button>
+        </div>
+    </div>
+
+</div>
+
+<input type="hidden" name="section_order" id="section_order"
+       value="about,education,experience,sport_achievements">
+
+<script>
+    function moveUp(button) {
+        const item = button.closest(".section-item");
+        const prev = item.previousElementSibling;
+
+        if (prev) {
+            item.parentNode.insertBefore(item, prev);
+            updateOrder();
+        }
+    }
+
+    function moveDown(button) {
+        const item = button.closest(".section-item");
+        const next = item.nextElementSibling;
+
+        if (next) {
+            item.parentNode.insertBefore(next, item);
+            updateOrder();
+        }
+    }
+
+    function updateOrder() {
+        const items = document.querySelectorAll(".section-item");
+        const order = [];
+
+        items.forEach(item => {
+            order.push(item.dataset.section);
+        });
+
+        document.getElementById("section_order").value = order.join(",");
+    }
+</script>
+
+
         <button type="submit">
             {% if lang == "ru" %}Создать резюме{% else %}Резюме жасау{% endif %}
         </button>
