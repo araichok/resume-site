@@ -618,3 +618,143 @@ button:hover {
 .move-btn:hover {
     background: #163b5c;
 }
+
+.template-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.template-card {
+    margin: 0;
+    padding: 18px;
+    border: 2px solid #d7d7d7;
+    border-radius: 14px;
+    background: #f8fafc;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.template-card input {
+    width: auto;
+    margin-right: 8px;
+}
+
+.template-card h3 {
+    margin: 8px 0 5px;
+    color: #1f4e79;
+    font-size: 18px;
+}
+
+.template-card p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.template-card:hover {
+    border-color: #1f4e79;
+    background: #eef4fb;
+}
+
+/* Шаблон 1 — классический */
+.resume.template1 .left {
+    background: #1f4e79;
+}
+
+.resume.template1 .section h3 {
+    color: #1f4e79;
+}
+
+/* Шаблон 2 — современный */
+.resume.template2 {
+    display: block;
+    padding: 45px;
+    box-sizing: border-box;
+}
+
+.resume.template2 .left {
+    width: 100%;
+    background: white;
+    color: #1d1d1d;
+    padding: 0;
+    text-align: center;
+}
+
+.resume.template2 .right {
+    width: 100%;
+    padding: 25px 0 0;
+}
+
+.resume.template2 .avatar,
+.resume.template2 .avatar-placeholder {
+    border: 4px solid #1f4e79;
+}
+
+.resume.template2 .contact {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.resume.template2 .left-section {
+    background: #f3f6fa;
+    padding: 20px;
+    border-radius: 14px;
+}
+
+.resume.template2 .section h3 {
+    color: #1f4e79;
+}
+
+/* Шаблон 3 — минималистичный */
+.resume.template3 {
+    display: block;
+    padding: 55px;
+    box-sizing: border-box;
+    box-shadow: none;
+    border: 1px solid #ddd;
+}
+
+.resume.template3 .left {
+    width: 100%;
+    background: white;
+    color: #1d1d1d;
+    padding: 0;
+}
+
+.resume.template3 .right {
+    width: 100%;
+    padding: 20px 0 0;
+}
+
+.resume.template3 .avatar,
+.resume.template3 .avatar-placeholder {
+    display: none;
+}
+
+.resume.template3 .left h1 {
+    text-align: left;
+    font-size: 32px;
+    color: #111;
+}
+
+.resume.template3 .contact {
+    border-bottom: 2px solid #222;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.resume.template3 .section h3 {
+    font-size: 20px;
+    color: #111;
+    border-bottom: 1px solid #999;
+}
+
+.resume.template3 .left-section {
+    margin-bottom: 25px;
+}

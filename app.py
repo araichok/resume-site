@@ -90,6 +90,7 @@ def builder():
             "skills": request.form.get("skills"),
             "sport_achievements": request.form.get("sport_achievements"),
             "section_order": request.form.get("section_order", "about,education,experience,sport_achievements"),
+            "template": request.form.get("template", "template1"),
             "photo": filename
         }
 

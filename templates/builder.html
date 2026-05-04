@@ -195,6 +195,44 @@
 </script>
 
 
+
+        <label>
+    {% if lang == "ru" %}
+        Выберите шаблон резюме
+    {% else %}
+        Резюме үлгісін таңдаңыз
+    {% endif %}
+</label>
+
+<div class="template-options">
+
+    <label class="template-card">
+        <input type="radio" name="template" value="template1" checked>
+        <div>
+            <h3>{% if lang == "ru" %}Классический{% else %}Классикалық{% endif %}</h3>
+            <p>{% if lang == "ru" %}Синий блок слева{% else %}Сол жақта көк блок{% endif %}</p>
+        </div>
+    </label>
+
+    <label class="template-card">
+        <input type="radio" name="template" value="template2">
+        <div>
+            <h3>{% if lang == "ru" %}Современный{% else %}Заманауи{% endif %}</h3>
+            <p>{% if lang == "ru" %}Чистый светлый стиль{% else %}Жеңіл ашық стиль{% endif %}</p>
+        </div>
+    </label>
+
+    <label class="template-card">
+        <input type="radio" name="template" value="template3">
+        <div>
+            <h3>{% if lang == "ru" %}Минималистичный{% else %}Минималистік{% endif %}</h3>
+            <p>{% if lang == "ru" %}Строгий и простой вид{% else %}Қарапайым және жинақы{% endif %}</p>
+        </div>
+    </label>
+
+</div>
+
+
         <button type="submit">
             {% if lang == "ru" %}Создать резюме{% else %}Резюме жасау{% endif %}
         </button>
